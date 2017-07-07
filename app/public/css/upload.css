@@ -14,7 +14,8 @@
 }
 
 .box-list {
-    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border: 2px dashed #0087F7;
 }
 
 .padding-box {
@@ -24,7 +25,7 @@
 .item-list {
     width: 100%;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0,135,247, 0.2);
     line-height: 50px;
     cursor: pointer; 
     cursor: hand;
@@ -32,12 +33,14 @@
 
 .listA {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    background-color: rgba(0,135,247, 0.2); 
     padding: 10px;
 }
 
 .listB {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 5px;
+    background-color: rgba(0,135,247, 0.2); 
     padding: 10px;
 }
