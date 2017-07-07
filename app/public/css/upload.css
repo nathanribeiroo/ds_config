@@ -13,19 +13,31 @@
     background: white;
 }
 
+.box-list {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.padding-box {
+    padding: 10px;
+}
+
 .item-list {
     width: 100%;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.2);
     line-height: 50px;
+    cursor: pointer; 
+    cursor: hand;
 }
 
 .listA {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.2); 
+    padding: 10px;
 }
 
 .listB {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 10px;
 }

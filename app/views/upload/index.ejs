@@ -37,17 +37,24 @@
             </div> 
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div id="left-copy-1tomany" class="listA">
-                    <p class="item-list">NOME 1.MOV</p>
-                    <p class="item-list">NOME 2.MOV</p>
-                    <p class="item-list">NOME 3.MOV</p>
+        <div class="row box-list">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-box">
+                <div id="list-videos" class="listA">
+                    <p data-item="i1" class="item-list">NOME 1.MOV</p>
+                    <p data-item="i2" class="item-list">NOME 2.MOV</p>
+                    <p data-item="i3" class="item-list">NOME 3.MOV</p>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div id="right-copy-1tomany" class="listB">
-                    <p class="item-list">NOME 4.MOV</p>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-box">
+                <div id="list-playlist" class="listB">
+                    <p class="item-list">
+                        <button type="button" class="close" data-dismiss="item-list" aria-label="Close">
+                            <span aria-hidden="true">
+                               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </span>
+                        </button>
+                        NOME 4.MOV
+                    </p>
                 </div>
             </div> 
         </div>
@@ -60,13 +67,61 @@
     <script src="js/dropzone.js"></script>
     <script src="js/dragula.js"></script>
 
-    <script>
-        dragula([document.getElementById("left-copy-1tomany"), document.getElementById("right-copy-1tomany")], {
+    <script type="text/javascript">
 
-            copy: function (el, source) {
-                return source === document.getElementById("left-copy-1tomany")
-            }
+        $(function() {
+            upload.start();
+            
         });
+
+        var upload = {
+
+            start : function() {
+                dragula([document.getElementById("list-videos"), document.getElementById("list-playlist")], {
+
+                    copy: function (el, source) {
+                        return source === document.getElementById("list-videos")
+                    },
+
+                    accepts: function (el, target) {
+                        return target !== document.getElementById("list-videos")
+                    } 
+                })
+                
+                .on('drag', function (el) {
+                })
+
+                .on('drop', function (el) {
+                    var btn = `<button type='button' class='close' data-item='${el.dataset.item}'>
+                                <span aria-hidden='true'>
+                                    <span class='glyphicon glyphicon-remove' aria-hidden='true'>
+                                    </span>
+                                </span>
+                                </button>${el.textContent}`;
+            
+                    el.innerHTML = btn;
+                    el.id = el.dataset.item;
+                    upload.btn_close();
+                })
+
+                .on('over', function (el, container) {
+                })
+
+                .on('out', function (el, container) {
+                });
+            },
+
+            btn_close : function () {
+                $(".close").on('click', function(el, ev){
+                    $( `#${el.currentTarget.dataset.item}` ).remove();
+                });
+            }
+
+        };
+
+
+        
+        
     </script>
   </body>
 </html>
