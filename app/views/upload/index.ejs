@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Digital Signage</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
+    <link href="css/dragula.css" rel="stylesheet">
+    <link href="css/upload.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- MENU -->
+    <%- include('../elements/menu', {}); %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form action="/file-upload" class="dropzone dz-clickable" id="upload-videos">
+                    <div class="dz-message message-main">
+                        Solte os vídeos aqui ou clique para selecionar.<br>
+                        <span class="note message-second">(Vídeos de até <strong>150MB</strong> na extensão <strong>.MOV</strong>)</span>
+                    </div>
+                </form>
+            </div> 
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div id="left-copy-1tomany" class="listA">
+                    <p class="item-list">NOME 1.MOV</p>
+                    <p class="item-list">NOME 2.MOV</p>
+                    <p class="item-list">NOME 3.MOV</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div id="right-copy-1tomany" class="listB">
+                    <p class="item-list">NOME 4.MOV</p>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/dragula.js"></script>
+
+    <script>
+        dragula([document.getElementById("left-copy-1tomany"), document.getElementById("right-copy-1tomany")], {
+
+            copy: function (el, source) {
+                return source === document.getElementById("left-copy-1tomany")
+            }
+        });
+    </script>
+  </body>
+</html>

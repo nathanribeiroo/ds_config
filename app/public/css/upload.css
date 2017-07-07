@@ -1,0 +1,31 @@
+.message-main {
+    font-size: 20px;
+    color: #646C7F;
+}
+
+.message-second {
+    font-size: 16px;
+}
+
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+}
+
+.item-list {
+    width: 100%;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.2);
+    line-height: 50px;
+}
+
+.listA {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.listB {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2); 
+}
